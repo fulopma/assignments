@@ -5,20 +5,20 @@
 ///     The difference between designated initializers and convenience is that designated initializers can initialize by themselves while
 ///     convenience initiailizers must call another initializer. Convenience initializers must use the `convenience` keyword.
 
-    class TestInitializer {
-        var name: String
-        
-        init(name: String){
-            self.name = name
-        }
-        convenience init (specialName: String){
-            self.init(name: specialName + "* special")
-        }
+class TestInitializer {
+    var name: String
+
+    init(name: String) {
+        self.name = name
     }
-    let test1 = TestInitializer(name: "Joe")
-    print(test1.name) // Joe
-    let test2 = TestInitializer(specialName: "Joe Schmoe")
-    print(test2.name) // Joe Schmoe* special
+    convenience init(specialName: String) {
+        self.init(name: specialName + "* special")
+    }
+}
+let test1 = TestInitializer(name: "Joe")
+print(test1.name)  // Joe
+let test2 = TestInitializer(specialName: "Joe Schmoe")
+print(test2.name)  // Joe Schmoe* special
 
 /// 3. Difference between if let and guard let?
 ///     The difference between if let and guard let is that if let binds the optional and then runs inside block with that local binded variable.
@@ -46,4 +46,3 @@
 ///     Enum and the collections are value type. Protocols depend whether a struct or class in conforming it and will take the type of the struct
 ///     or class.
 ///
-
